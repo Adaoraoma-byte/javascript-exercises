@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // Lesson 05 exercise: Functions
 // In your exercise repository, create a branch named `lesson-05-exercise` and switch to it,
@@ -20,12 +20,40 @@ if (orderSize > 12) {
   console.log("Small order, walk right in");
 }
 
+// FUNCTION
+function checkOrderSize(orderSize) {
+  if (orderSize > 12) {
+    console.log("Large order, call the bakery ahead");
+  } else if (orderSize > 6) {
+    console.log("Medium order, ready in an hour");
+  } else {
+    console.log("Small order, walk right in");
+  }
+}
+
+checkOrderSize(14);
+checkOrderSize(10);
+checkOrderSize(6);
+checkOrderSize(20);
 
 // TODO: Part two.
 // Change the function so that it returns its message instead of printing inside the body, and
 // move every `console.log` to the call site. Add a one-sentence comment on why the returning
 // version is more reusable.
-
+function checkOrderSize(orderSize) {
+  if (orderSize > 12) {
+    return "Large order, call the bakery ahead";
+  } else if (orderSize > 6) {
+    return "Medium order, ready in an hour";
+  } else {
+    return "Small order, walk right in";
+  }
+}
+console.log(checkOrderSize(14));
+console.log(checkOrderSize(10));
+console.log(checkOrderSize(6));
+console.log(checkOrderSize(20));
+// Returning the message makes the function more reusable because the result can be stored or used in different ways.
 
 // TODO: Part three.
 // The file provides two small declared helper functions. Convert the first into a function
@@ -41,11 +69,32 @@ function shout(text) {
   return `${text.toUpperCase()}!`;
 }
 
+// Converting to Function Expression
+const double = function (n) {
+  return n * 2;
+};
+console.log(double(5));
+
+// Converting to arrow function
+const shout = (text) => `${text.toUpperCase()}!`;
+console.log(shout("bread"));
 
 // TODO: Part four.
 // Give your pricing function a default parameter value, and log one call that supplies the
 // argument and one call that relies on the default.
 
+function checkOrderSize(orderSize = 5) {
+  if (orderSize > 12) {
+    return "Large order, call the bakery ahead";
+  } else if (orderSize > 6) {
+    return "Medium order, ready in an hour";
+  } else {
+    return "Small order, walk right in";
+  }
+}
+
+console.log(checkOrderSize(14));
+console.log(checkOrderSize());
 
 // TODO: Part five.
 // Write a function named `repeat` that receives a callback and a count, and calls the callback
@@ -56,6 +105,16 @@ function shout(text) {
 // * let i = 1;
 // * while (i <= count) { call the callback here; i = i + 1; }
 
+function repeat(callback, count) {
+  let i = 1;
+  while (i <= count) {
+    callback();
+    i = i + 1;
+  }
+}
+repeat(() => {
+  console.log("Hello!");
+}, 3);
 
 // TODO: Part six.
 // The file contains a short program with global, function, and block declarations, including
@@ -76,12 +135,50 @@ if (true) {
 }
 // console.log(insideIf); // prediction first, then uncomment to verify:
 
+const shopName = "Maison Sarah";
+function greet(customer) {
+  const shopName = "The Corner Bakery";
+  return `Welcome to ${shopName}, ${customer}`;
+}
+
+// Prediction: Welcome to The Corner Bakery, Anna
+console.log(greet("Anna")); // Result: Welcome to The Corner Bakery, Anna
+
+// Prediction: Maison Sarah
+console.log(shopName); // Result: Maison Sarah
+
+if (true) {
+  const insideIf = "visible in here";
+
+  // Prediction: visible in here
+  console.log(insideIf); // Result: visible in here
+}
+
+// Prediction: ReferenceError because insideIf only exists inside the if block
+// console.log(insideIf); // Result: ReferenceError: insideIf is not defined
 
 // TODO: Part seven.
 // Write the classic temperature converter as two functions, one converting Celsius to
 // Fahrenheit and one converting back, each returning its result. Log a small table of three
 // conversions in each direction, formatted with template literals and `toFixed`.
 
+function celsiusToFahrenheit(celsius) {
+  return (celsius * 9) / 5 + 32;
+}
+
+function fahrenheitToCelsius(fahrenheit) {
+  return ((fahrenheit - 32) * 5) / 9;
+}
+
+// Celsius to Fahrenheit
+console.log(`0°C = ${celsiusToFahrenheit(0).toFixed(2)}°F`);
+console.log(`20°C = ${celsiusToFahrenheit(20).toFixed(2)}°F`);
+console.log(`100°C = ${celsiusToFahrenheit(100).toFixed(2)}°F`);
+
+// Fahrenheit to Celsius
+console.log(`32°F = ${fahrenheitToCelsius(32).toFixed(2)}°C`);
+console.log(`68°F = ${fahrenheitToCelsius(68).toFixed(2)}°C`);
+console.log(`212°F = ${fahrenheitToCelsius(212).toFixed(2)}°C`);
 
 // TODO: Part eight.
 // The file provides a line that throws a TypeError when run. Wrap it in `try` and `catch`, log
@@ -92,7 +189,14 @@ if (true) {
 // ! then uncomment it and wrap it in try and catch:
 // const answer = 42;
 // console.log(answer.toUpperCase());
-
+// TRY AND CATCH STATEMENT
+try {
+  const answer = 42;
+  console.log(answer.toUpperCase());
+} catch (error) {
+  console.log(`Something went wrong: ${error.message}`);
+}
+console.log("The program survived the error and continued running.");
 
 // TODO: Save deliberately, commit with a clear message, push the branch, and open a pull request
 // into main.
