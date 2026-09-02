@@ -40,6 +40,10 @@ console.log("Welldone Mama");
 // not changed. Save and run once more, then describe in a one-sentence comment what happened
 // and why.
 
+console.log("Product love and Merchant Care");
+// The output did not change until the file was saved because Node.js runs the saved version of the file, not unsaved editor changes.
+
+
 // TODO: Part four.
 // Run your greeting line in the Chrome DevTools Console. In a comment, record one way the
 // experience matched Node and one way it differed.
@@ -52,22 +56,24 @@ console.log("Welldone Mama");
 // the terminal reports it cannot find the file. Paste that error transcript as a comment, then
 // explain in one sentence how you resolved it.
 
-//.      09. 
-// node:internal/modules/cjs/loader:1520
-// throw err;
-// Error: Cannot find module '/Users/adaoraoma/lesson-01.js'
-    at Module._resolveFilename (node:internal/modules/cjs/loader:1517:15)
-    at wrapResolveFilename (node:internal/modules/cjs/loader:1071:27)
-    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1095:10)
-    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122:12)
-    at Module._load (node:internal/modules/cjs/loader:1294:5)
-    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
-    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
-    at node:internal/main/run_main_module:33:47 {
-  code: 'MODULE_NOT_FOUND',
+    ERROR TRANSCRIPT 
+/*  node:internal/modules/cjs/loader:1520
+ throw err;
+Error: Cannot find module '/Users/adaoraoma/lesson-01.js'
+at Module._resolveFilename (node:internal/modules/cjs/loader:1517:15)
+at wrapResolveFilename (node:internal/modules/cjs/loader:1071:27)
+at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1095:10)
+at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122:12)
+at Module._load (node:internal/modules/cjs/loader:1294:5)
+at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+at node:internal/main/run_main_module:33:47 {
+ code: 'MODULE_NOT_FOUND',
   requireStack: []
 }
-// I changed back to the supposed folder
+Solution: I changed back to the supposed folder
+*/
+
 
 // TODO: Save the file, commit your work with a clear message, push the branch, and open a pull
 // request into your main branch.
